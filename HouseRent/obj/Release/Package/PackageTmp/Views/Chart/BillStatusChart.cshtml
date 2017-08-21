@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewBag.Title = "BillStatusChart";
+}
+
+<div class="panel panel-success" id="context">
+    <div class="panel-heading">Bill Status Chart</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-1">
+                    <label for="fromDate">From Date</label>
+                </div>
+                <div class="col-md-2">
+                    <input id="fromDate" name="fromDate" />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <label for="toDate">To Date</label>
+                </div>
+                <div class="col-md-2">
+                    <input id="toDate" name="toDate" />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <label for="flatId">Flat</label>
+                </div>
+                <div class="col-md-2">
+                    <input id="flatId" name="flatId" />
+                </div>
+                <div class="col-md-1">
+                    <input type="button" class="k-button " id="btnSearch" name="btnSearch" value="Search" style="margin-top: 6px" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-success" id="context_bar">
+    <div class="panel-heading">Total Bill Status Bar Chart</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="chart_bar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-success">
+    <div class="panel-heading">Electricity Status Bar Chart</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="electricity_statuschart_chart_bar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Electricity Status Line Chart</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="electricity_statuschart_chart_line"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var todayDate = kendo.toString(kendo.parseDate(new Date()), 'yyyy/MM/dd');
+        $("#fromDate").val(todayDate);
+        $("#toDate").val(todayDate);
+
+        //date time picker
+        $("#fromDate").kendoDatePicker({
+            animation: {
+                close: {
+                    effects: "fadeOut zoom:out",
+                    duration: 300
+                },
+                open: {
+                    effects: "fadeIn zoom:in",
+                    duration: 300
+                }
+            },
+            format: "yyyy/MM/dd"
+        });
+
+        //date time picker
+        $("#toDate").kendoDatePicker({
+            animation: {
+                close: {
+                    effects: "fadeOut zoom:out",
+                    duration: 300
+                },
+                open: {
+                    effects: "fadeIn zoom:in",
+                    duration: 300
+                }
+            },
+            format: "yyyy/MM/dd"
+        });
+
+        $("#flatId").kendoComboBox({
+            autoBind: false,
+            placeholder: "--- Select ---",
+            dataTextField: "FlatName",
+            dataValueField: "FlatId",
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "/api/FlatApi/GetAllFlats"
+                    }
+                }
+            }
+        });
+
+        //Excel Export---------
+        $("#btnSearch").click(function () {
+            Loading(true);
+
+            var fromDate = $("#fromDate").val();
+            var toDate = $("#toDate").val();
+            var flatId = $("#flatId").val();
+
+            if (fromDate == '') {
+                Loading(false);
+                sweetAlert("Sorry...", "Select From Date", "warning");
+            }
+            else if (toDate == '') {
+                Loading(false);
+                sweetAlert("Sorry...", "Select To Date", "warning");
+            } else if (flatId == '') {
+                Loading(false);
+                sweetAlert("Sorry...", "Select Flat", "warning");
+            }
+            else {
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/ChartApi/GetBillStatusChartByFlatId?fromDate=" + fromDate + "&toDate=" + toDate + "&flatId=" + flatId + "",
+                    dataType: "json",
+                    success: function (datax) {
+                        Loading(false);
+                        google.charts.load("current", { packages: ["corechart", 'bar'] });
+                        google.charts.setOnLoadCallback(drawChartBar);
+
+                        function drawChartBar() {
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('string', 'Month');
+                            data.addColumn('number', 'Amount');
+                            data.addColumn('number', 'House Rent');
+                            data.addColumn('number', 'Electricity');
+                            data.addColumn('number', 'Gas');
+                            data.addColumn('number', 'Water');
+                            //data.addColumn('number', 'Service');
+                            //data.addColumn('number', 'Others');
+
+                            $.each(datax, function (key, obj) {
+                                data.addRows([[obj.MonthOfBill, obj.Amount, obj.HouseRent, obj.ElectricityBill, obj.GasBill, obj.WaterBill]]);
+                            });
+
+                            var optionsBar = {
+                                chart: {
+                                    title: '',
+                                    subtitle: ''
+                                },
+                                vAxis: { format: 'decimal' }
+                            };
+
+                            var chartBar = new google.charts.Bar(document.getElementById('chart_bar'));
+                            chartBar.draw(data, google.charts.Bar.convertOptions(optionsBar));
+                        }
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/ChartApi/GetBillStatusChartByFlatId?fromDate=" + fromDate + "&toDate=" + toDate + "&flatId=" + flatId + "",
+                    dataType: "json",
+                    success: function (datax) {
+                        Loading(false);
+                        google.charts.load("current", { packages: ["corechart", 'bar'] });
+                        google.charts.setOnLoadCallback(drawChartBar);
+
+                        function drawChartBar() {
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('string', 'Month');
+                            data.addColumn('number', 'Electricity Bill');
+                            data.addColumn('number', 'Unit Used');
+
+                            $.each(datax, function (key, obj) {
+                                data.addRows([[obj.MonthOfBill, obj.ElectricityBill, obj.UnitUsed]]);
+                            });
+
+                            var optionsBar = {
+                                chart: {
+                                    title: '',
+                                    subtitle: ''
+                                },
+                                vAxis: { format: 'decimal' },
+                                colors: ['orange', 'Navy']
+                            };
+
+                            var optionsLine = {
+                                title: '',
+                                curveType: 'function',
+                                colors: ['orange', 'Navy']
+                            };
+
+                            var chartBar = new google.charts.Bar(document.getElementById('electricity_statuschart_chart_bar'));
+                            chartBar.draw(data, google.charts.Bar.convertOptions(optionsBar));
+                            var chartLine = new google.visualization.LineChart(document.getElementById('electricity_statuschart_chart_line'));
+                            chartLine.draw(data, optionsLine);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+

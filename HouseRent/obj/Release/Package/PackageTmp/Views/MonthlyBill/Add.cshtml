@@ -1,0 +1,310 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+<div id="context">
+    <div class="panel panel-success">
+        <div class="panel-heading">Monthly Bill Information</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="RenterId">Renter Name&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="RenterId" name="RenterId" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="MonthOfBill">Month Of Bill&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="MonthOfBill" name="MonthOfBill" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="HouseRent">House Rent&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="HouseRent" name="HouseRent" placeholder="Enter House Rent" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="PreviousMonthUnit">Previous Month Unit&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="PreviousMonthUnit" name="PreviousMonthUnit" placeholder="Enter Previous Month Unit" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="CurrentMonthUnit">Current Month Unit&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="CurrentMonthUnit" name="CurrentMonthUnit" placeholder="Enter Current Month Unit" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="UnitUsed">Unit Used</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="UnitUsed" name="UnitUsed" placeholder="Enter Unit Used" class="k-textbox" disabled />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="BillPerUnit">Bill Per Unit&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="BillPerUnit" name="BillPerUnit" placeholder="Enter Bill Per Unit" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="ElectricityBill">Electricity Bill</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="ElectricityBill" name="ElectricityBill" placeholder="Enter Electricity Bill" class="k-textbox" disabled />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="GasBill">Gas Bill&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="GasBill" name="GasBill" placeholder="Enter Gas Bill" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="WaterBill">Water Bill&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="WaterBill" name="WaterBill" placeholder="Enter Water Bill" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="ServiceCharge">Service Charge&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="ServiceCharge" name="ServiceCharge" placeholder="Enter Service Charge" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="OthersBill">Others Bill&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="OthersBill" name="OthersBill" placeholder="Enter Others Bill" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="Remarks">Remarks</label>
+                    </div>
+                    <div class="col-md-3">
+                        <textarea id="Remarks" name="Remarks" placeholder="Enter Remarks" class="k-textbox"></textarea>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="group-box">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="button" class="k-button" id="btnSave" name="btnSave" value="Generate Bill" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Javascript and Ajax to Submit the Form-->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#context').addClass('animated zoomIn');
+
+        $("#MonthOfBill").kendoDatePicker({
+            start: "year",
+            depth: "year",
+            format: "MMMM yyyy"
+        });
+
+        $("#RenterId").kendoComboBox({
+            autoBind: false,
+            placeholder: "--- Select ---",
+            dataTextField: "RenterFlat",
+            dataValueField: "RenterId",
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "/api/RenterApi/GetAllRenters"
+                    }
+                }
+            }
+        });
+
+        $("#HouseRent").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#PreviousMonthUnit").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#PreviousMonthUnit").keyup(function () {
+            var cmu = $("#CurrentMonthUnit").val();
+            var pmu = $("#PreviousMonthUnit").val();
+            $("#UnitUsed").val(cmu - pmu);
+        });
+
+
+        $("#CurrentMonthUnit").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#CurrentMonthUnit").keyup(function () {
+            var cmu = $("#CurrentMonthUnit").val();
+            var pmu = $("#PreviousMonthUnit").val();
+            $("#UnitUsed").val(cmu - pmu);
+        });
+
+        $("#BillPerUnit").keyup(function () {
+            var uu = $("#UnitUsed").val();
+            var bpu = $("#BillPerUnit").val();
+            $("#ElectricityBill").val(uu * bpu);
+        });
+
+        $("#BillPerUnit").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#GasBill").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#WaterBill").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#ServiceCharge").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#OthersBill").keypress(function (e) {
+            if (e.which != 8 && e.which != 46 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#btnSave").click(function () {
+            Loading(true);
+
+            var RenterId = $("#RenterId").val();
+            var MonthOfBill = $("#MonthOfBill").val();
+            var HouseRent = $("#HouseRent").val();
+            var PreviousMonthUnit = $("#PreviousMonthUnit").val();
+            var CurrentMonthUnit = $("#CurrentMonthUnit").val();
+            var UnitUsed = $("#UnitUsed").val();
+            var BillPerUnit = $("#BillPerUnit").val();
+            var ElectricityBill = $("#ElectricityBill").val();
+            var GasBill = $("#GasBill").val();
+            var WaterBill = $("#WaterBill").val();
+            var ServiceCharge = $("#ServiceCharge").val();
+            var OthersBill = $("#OthersBill").val();
+            var Remarks = $("#Remarks").val();
+
+            var oMonthlyBill = {
+                RenterId: RenterId,
+                MonthOfBill: MonthOfBill,
+                HouseRent: HouseRent,
+                PreviousMonthUnit: PreviousMonthUnit,
+                CurrentMonthUnit: CurrentMonthUnit,
+                UnitUsed: UnitUsed,
+                BillPerUnit: BillPerUnit,
+                ElectricityBill: ElectricityBill,
+                GasBill: GasBill,
+                WaterBill: WaterBill,
+                ServiceCharge: ServiceCharge,
+                OthersBill: OthersBill,
+                Remarks: Remarks
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/api/MonthlyBillApi/Post",
+                data: JSON.stringify(oMonthlyBill),
+                dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    Loading(false);
+                    console.log(data);
+
+                    if (data.output === "success") {
+                        sweetAlert("Yes...", data.msg, "success");
+                        setTimeout(function () {
+                            window.location.href = '/MonthlyBill/Add';
+                        }, 1000);
+
+                        return false;
+                    } else {
+                        sweetAlert("Sorry...", data.msg, "warning");
+                        return false;
+                    }
+                }
+            });
+
+        });
+    });
+
+</script>

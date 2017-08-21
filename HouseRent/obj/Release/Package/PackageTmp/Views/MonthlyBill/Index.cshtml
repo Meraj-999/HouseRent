@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="panel panel-success" id="context">
+
+    <script id="edit-template" type="text/x-kendo-template">
+        <a style="font-size:14px; text-decoration: none;" href="/MonthlyBill/Edit?monthlyBillId=#= MonthlyBillId #" class="k-button k-grid-even edit">Edit</a>
+    </script>
+    <script id="Report-template" type="text/x-kendo-template">
+        <a style="font-size:14px; text-decoration: none;" href="/MonthlyBill/GetMonthlyBillReportById?monthlyBillId=#= MonthlyBillId#" target="_blank" class="k-button k-grid-even">Report</a>
+    </script>
+    <div class="k-grid  k-secondary" data-role="grid">
+        <div class="k-toolbar k-grid-toolbar">
+            <a class="k-button k-button-icontext k-grid-add" href="@Url.Action("Add", "MonthlyBill")">
+                <span class="k-icon k-add"></span>
+                New Monthly Bill
+            </a>
+        </div>
+    </div>
+    <div id="grid"></div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#context').addClass('animated zoomIn');
+            var dataSource = new kendo.data.DataSource({
+                pageSize: 10,
+                transport: {
+                    read: {
+                        url: "/api/MonthlyBillApi/GetAllMonthlyBills",
+                        type: "GET"
+                    },
+                    update: {
+                        url: "",
+                        type: "PUT",
+                        complete: function (e) {
+                            jQuery("#grid").data("kendoGrid").dataSource.read();
+                        }
+                    },
+                    destroy: {
+                        url: "/api/MonthlyBillApi/Delete",
+                        type: "DELETE",
+                        complete: function (e) {
+                            jQuery("#grid").data("kendoGrid").dataSource.read();
+                        }
+                    }
+                },
+                //    code: "Ok",
+                autoSync: false,
+                schema: {
+                    errors: function (e) {
+                        console.log(e.errors);
+                        //alert(e.error);
+                        if (e.output === "error") {
+                            console.log(e.output);
+                            //KendoWindowFunction(e.msg, "error", "");
+                            // this.cancelChanges();
+                        }
+
+                    },
+
+                    model: {
+                        id: "MonthlyBillId",
+                        fields: {
+                            MonthlyBillId: { editable: false, nullable: true },
+                            RenterName: { type: "string" },
+                            FlatName: { type: "string" },
+                            MonthOfBill: { type: "string" },
+                            PaymentStatus: { type: "string" }
+                        }
+                    }
+                }
+            });
+            jQuery("#grid").kendoGrid({
+                dataSource: dataSource,
+                pageable: true,
+                sortable: true,
+                groupable: true,
+                resizable: true,
+                columns: [
+                    { field: "RenterName", title: "Renter Name", id: "MonthlyBillId", width: "100px" },
+                    { field: "FlatName", title: "Flat", width: "50px" },
+                    { field: "MonthOfBill", title: "Month Of Bill", width: "100px" },
+                    { field: "PaymentStatus", title: "Payment Status", width: "100px" },
+                    {
+                        title: "&nbsp", width: "100px",
+                        template: kendo.template($("#edit-template").html())
+                    },
+                    {
+                        title: "&nbsp", width: "100px", template: kendo.template($("#Report-template").html())
+                    },
+                    { command: ["destroy"], title: "&nbsp", width: "100px" }
+                ],
+                dataBound: function (e) {
+                    var grid = $("#grid").data("kendoGrid");
+                    var gridData = grid.dataSource.view();
+
+                    for (var i = 0; i < gridData.length; i++) {
+                        var currentUid = gridData[i].uid;
+                        var currenRow = grid.table.find("tr[data-uid='" + currentUid + "']");
+                        var editButton = $(currenRow).find(".edit");
+                        var deleteButton = $(currenRow).find(".k-grid-delete");
+                        console.log(e.sender._data[i].PaymentStatus);
+                        if (e.sender._data[i].PaymentStatus == "Due") {
+                            currenRow.css("background-color", "#fbbfbf");
+                        } else {
+                            currenRow.css("background-color", "#dff0d8");
+                            editButton.hide();
+                            deleteButton.hide();
+                        }
+                    }
+                },
+                editable: "inline"
+            });
+        });
+    </script>
+</div>

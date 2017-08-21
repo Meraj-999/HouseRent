@@ -1,0 +1,282 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+<div id="context">
+    <div class="panel panel-success">
+        <div class="panel-heading">Basic Information</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="RenterName">Renter Name&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="RenterName" name="RenterName" placeholder="Enter Renter Name" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="FatherName">Father Name</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="FatherName" name="FatherName" placeholder="Enter Father Name" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="DateOfBirth">Date Of Birth</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="DateOfBirth" name="DateOfBirth" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="MaritalStatus">Marital Status&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="MaritalStatus" style="width: 80%;" name="MaritalStatus">
+                            <option value="">--- Select ---</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="Occupation">Occupation</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="Occupation" name="Occupation" placeholder="Enter Occupation" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="Religion">Religion</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="Religion" name="Religion" placeholder="Enter Religion" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="AcademicQualification">Academic Qualification</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="AcademicQualification" name="AcademicQualification" placeholder="Enter Academic Qualification" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="MobileNo">Mobile No&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="MobileNo" name="MobileNo" placeholder="Enter Mobile No" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="PermanentAddress">Permanent Address</label>
+                    </div>
+                    <div class="col-md-3">
+                        <textarea id="PermanentAddress" name="PermanentAddress" placeholder="Enter Permanent Address" class="k-textbox"></textarea>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="FlatId">Flat&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="FlatId" name="FlatId" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Important Information</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="NidNo">NID No&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="NidNo" name="NidNo" placeholder="Enter Nid No" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <label for="RentDate">Rent Date&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="RentDate" name="RentDate" />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="AdvancedPaymet">Advanced Paymet&nbsp;<i class="fa fa-asterisk fieldRequired"></i></label>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="AdvancedPaymet" name="AdvancedPaymet" placeholder="Enter Advanced Paymet" class="k-textbox" />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="group-box">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="button" class="k-button" id="btnSave" name="btnSave" value="Save Information" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Javascript and Ajax to Submit the Form-->
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+        var dateOfBirth = kendo.toString(kendo.parseDate(new Date()), 'yyyy-MM-dd');
+        $("#DateOfBirth").val(dateOfBirth);
+
+        var rentDate = kendo.toString(kendo.parseDate(new Date()), 'yyyy-MM-dd');
+        $("#RentDate").val(rentDate);
+
+        $('#context').addClass('animated zoomIn');
+        $("#MaritalStatus").kendoDropDownList();
+
+        $("#DateOfBirth").kendoDatePicker({
+            animation: {
+                close: {
+                    effects: "fadeOut zoom:out",
+                    duration: 300
+                },
+                open: {
+                    effects: "fadeIn zoom:in",
+                    duration: 300
+                }
+            },
+            format: "yyyy-MM-dd"
+        });
+
+        $("#RentDate").kendoDatePicker({
+            animation: {
+                close: {
+                    effects: "fadeOut zoom:out",
+                    duration: 300
+                },
+                open: {
+                    effects: "fadeIn zoom:in",
+                    duration: 300
+                }
+            },
+            format: "yyyy-MM-dd"
+        });
+
+        $("#FlatId").kendoComboBox({
+            autoBind: false,
+            placeholder: "--- Select ---",
+            dataTextField: "FlatName",
+            dataValueField: "FlatId",
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: "/api/FlatApi/GetAllFlats"
+                    }
+                }
+            }
+        });
+
+        $("#AdvancedPaymet").keypress(function (e) {
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                sweetAlert("Sorry...", "Only Digits Allowed", "warning");
+                return false;
+            }
+        });
+
+        $("#btnSave").click(function () {
+            Loading(true);
+
+            var RenterName = $("#RenterName").val();
+            var FatherName = $("#FatherName").val();
+            var DateOfBirth = $("#DateOfBirth").val();
+            var MaritalStatus = $("#MaritalStatus").val();
+            var PermanentAddress = $("#PermanentAddress").val();
+            var FlatId = $("#FlatId").val();
+            var Occupation = $("#Occupation").val();
+            var Religion = $("#Religion").val();
+            var AcademicQualification = $("#AcademicQualification").val();
+            var MobileNo = $("#MobileNo").val();
+            var NidNo = $("#NidNo").val();
+            var RentDate = $("#RentDate").val();
+            var AdvancedPaymet = $("#AdvancedPaymet").val();
+
+            var oRenter = {
+                RenterName: RenterName,
+                FatherName: FatherName,
+                DateOfBirth: DateOfBirth,
+                MaritalStatus: MaritalStatus,
+                PermanentAddress: PermanentAddress,
+                FlatId: FlatId,
+                Occupation: Occupation,
+                Religion: Religion,
+                AcademicQualification: AcademicQualification,
+                MobileNo: MobileNo,
+                NidNo: NidNo,
+                RentDate: RentDate,
+                AdvancedPaymet: AdvancedPaymet
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/api/RenterApi/Post",
+                data: JSON.stringify(oRenter),
+                dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    Loading(false);
+                    console.log(data);
+
+                    if (data.output === "success") {
+                        sweetAlert("Yes...", data.msg, "success");
+                        setTimeout(function() {
+                            window.location.href = '/Renter/Add';
+                        }, 1000);
+                        
+                        return false;
+                    } else {
+                        sweetAlert("Sorry...", data.msg, "warning");
+                        return false;
+                    }
+                }
+            });
+
+        });
+    });
+
+</script>

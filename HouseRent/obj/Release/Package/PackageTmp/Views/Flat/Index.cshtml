@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div id="context">
+    <div id="grid"></div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        $('#context').addClass('animated zoomIn');
+        var dataSource = new kendo.data.DataSource({
+            pageSize: 10,
+            transport: {
+                read: {
+                    url: "/api/FlatApi/GetAllFlats",
+                    type: "GET"
+                },
+                update: {
+                    url: "/api/FlatApi/Put",
+                    type: "PUT",
+                    complete: function (e) {
+                        jQuery("#grid").data("kendoGrid").dataSource.read();
+                    }
+                },
+                destroy: {
+                    url: "/api/FlatApi/Delete",
+                    type: "DELETE"
+                },
+                create: {
+                    url: "/api/FlatApi/Post",
+                    type: "POST",
+                    complete: function (e) {
+                        jQuery("#grid").data("kendoGrid").dataSource.read();
+                    }
+                }
+            },
+            //    code: "Ok",
+            autoSync: false,
+            schema: {
+                errors: function (e) {
+                    if (e.output === "error") {
+                        sweetAlert("Sorry...", e.msg, "error");
+                    }
+                },
+
+                model: {
+                    id: "FlatId",
+                    fields: {
+                        FlatId: { editable: false, nullable: true },
+                        FlatName: { type: "string", validation: { required: true } },
+                        FlatDescription: { type: "string", validation: { required: true } },
+                        FloorName: { type: "string", validation: { required: true } }
+                    }
+
+                }
+            }
+
+        });
+        jQuery("#grid").kendoGrid({
+            dataSource: dataSource,
+            pageable: true,
+            sortable: true,
+            groupable: true,
+            resizable: true,
+
+            toolbar: [{ name: "create", text: "New Flat" }],
+            columns: [
+                { field: "FlatName", title: "Flat Name", id: "FlatId", width: "5%" },
+                { field: "FlatDescription", title: "Flat Description", width: "10%" },
+                { field: "FloorName", title: "Floor Name", width: "5%" },
+                { command: ["edit", "destroy"], title: "&nbsp", width: "8%" }],
+            editable: "inline"
+        });
+
+    });
+
+
+</script>

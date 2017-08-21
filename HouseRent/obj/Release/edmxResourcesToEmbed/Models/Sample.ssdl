@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HouseRentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Flat">
+    <Key>
+      <PropertyRef Name="FlatId" />
+    </Key>
+    <Property Name="FlatId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlatName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FlatDescription" Type="nvarchar(max)" />
+    <Property Name="FloorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="MonthlyBill">
+    <Key>
+      <PropertyRef Name="MonthlyBillId" />
+    </Key>
+    <Property Name="MonthlyBillId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RenterId" Type="bigint" />
+    <Property Name="MonthOfBill" Type="nvarchar" MaxLength="100" />
+    <Property Name="HouseRent" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CurrentMonthUnit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PreviousMonthUnit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UnitUsed" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BillPerUnit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ElectricityBill" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GasBill" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WaterBill" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ServiceCharge" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OthersBill" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Renter">
+    <Key>
+      <PropertyRef Name="RenterId" />
+    </Key>
+    <Property Name="RenterId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FlatId" Type="bigint" />
+    <Property Name="RenterName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FatherName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="PermanentAddress" Type="nvarchar(max)" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="250" />
+    <Property Name="Religion" Type="nvarchar" MaxLength="50" />
+    <Property Name="AcademicQualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="NidNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="RentDate" Type="date" />
+    <Property Name="AdvancedPaymet" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="HouseRentDBModelStoreContainer">
+    <EntitySet Name="Flat" EntityType="Self.Flat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthlyBill" EntityType="Self.MonthlyBill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Renter" EntityType="Self.Renter" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

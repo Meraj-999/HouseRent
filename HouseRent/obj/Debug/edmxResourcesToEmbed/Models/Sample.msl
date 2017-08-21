@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HouseRentDBModelStoreContainer" CdmEntityContainer="HouseRentDBEntities">
+    <EntitySetMapping Name="Flats">
+      <EntityTypeMapping TypeName="HouseRentDBModel.Flat">
+        <MappingFragment StoreEntitySet="Flat">
+          <ScalarProperty Name="FlatId" ColumnName="FlatId" />
+          <ScalarProperty Name="FlatName" ColumnName="FlatName" />
+          <ScalarProperty Name="FlatDescription" ColumnName="FlatDescription" />
+          <ScalarProperty Name="FloorName" ColumnName="FloorName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Renters">
+      <EntityTypeMapping TypeName="HouseRentDBModel.Renter">
+        <MappingFragment StoreEntitySet="Renter">
+          <ScalarProperty Name="RenterId" ColumnName="RenterId" />
+          <ScalarProperty Name="FlatId" ColumnName="FlatId" />
+          <ScalarProperty Name="RenterName" ColumnName="RenterName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="AcademicQualification" ColumnName="AcademicQualification" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="NidNo" ColumnName="NidNo" />
+          <ScalarProperty Name="RentDate" ColumnName="RentDate" />
+          <ScalarProperty Name="AdvancedPaymet" ColumnName="AdvancedPaymet" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlyBills">
+      <EntityTypeMapping TypeName="HouseRentDBModel.MonthlyBill">
+        <MappingFragment StoreEntitySet="MonthlyBill">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="OthersBill" ColumnName="OthersBill" />
+          <ScalarProperty Name="ServiceCharge" ColumnName="ServiceCharge" />
+          <ScalarProperty Name="WaterBill" ColumnName="WaterBill" />
+          <ScalarProperty Name="GasBill" ColumnName="GasBill" />
+          <ScalarProperty Name="ElectricityBill" ColumnName="ElectricityBill" />
+          <ScalarProperty Name="BillPerUnit" ColumnName="BillPerUnit" />
+          <ScalarProperty Name="UnitUsed" ColumnName="UnitUsed" />
+          <ScalarProperty Name="PreviousMonthUnit" ColumnName="PreviousMonthUnit" />
+          <ScalarProperty Name="CurrentMonthUnit" ColumnName="CurrentMonthUnit" />
+          <ScalarProperty Name="HouseRent" ColumnName="HouseRent" />
+          <ScalarProperty Name="MonthOfBill" ColumnName="MonthOfBill" />
+          <ScalarProperty Name="RenterId" ColumnName="RenterId" />
+          <ScalarProperty Name="MonthlyBillId" ColumnName="MonthlyBillId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
